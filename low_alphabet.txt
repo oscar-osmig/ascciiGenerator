@@ -1,13 +1,4 @@
-package com.osmig;
-
-import java.io.*;
-
-public class alphabet {
-
-    public static void lowerCase() throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("text.txt", true));
-
-        // THE CURRENT FONT IS : LARRY 3D
+// THE CURRENT FONT IS : LARRY 3D
         String[] a = {"        ", "        ", "   __   " , " /'__`\\ ", "/\\ \\L\\.\\_", "\\ \\__/.\\_\\", " \\/__/\\/_/", "          ", "          "};
         String[] b = {" __        " , "/\\ \\       " , "\\ \\ \\____   " , " \\ \\ '__`\\  " , "  \\ \\ \\L\\ \\ " , "   \\ \\_,__/ " , "    \\/___/  " , "           " , "           "};
         String[] c = {"        " , "        " , "  ___   " , " /'___\\" , "/\\ \\__/" , "\\ \\____\\" , " \\/____/" , "        " , "        "};
@@ -34,31 +25,3 @@ public class alphabet {
         String[] x = {"          " , "          " , "  __  _   " , " /\\ \\/'\\  " , " \\/>  </  " , "  /\\_/\\_\\ " , "  \\//\\/_/ " , "          " , "          "};
         String[] y = {"             " , "             " , "  __  __     " , " /\\ \\/\\ \\    " , " \\ \\ \\_\\ \\   " , "  \\/`____ \\  " , "   `/___/> \\ " , "      /\\___/ " , "      \\/__/  "};
         String[] z = {"           " , "           " , "  ____     " , " /\\_ ,`\\   " , " \\/_/  /_  " , "   /\\____\\ " , "   \\/____/ " , "           " , "           "};
-
-        int line_index = 0;
-        for(int num = 0; num <9; num++){
-            bufferedWriter.write(   u[line_index]+ "\n");
-            line_index++;
-        }
-
-        bufferedWriter.close();
-
-        // read file w/ buffer
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("text.txt"));
-        String line;
-        //bufferedReader.readLine();
-        while ((line = bufferedReader.readLine()) != null){
-            System.out.println(line);
-        }
-
-        BufferedWriter reset = new BufferedWriter(new FileWriter("text.txt"));
-        reset.write("");
-        reset.close();
-    }
-
-
-
-    public static void main(String[] args) throws IOException {
-        lowerCase();
-    }
-}
