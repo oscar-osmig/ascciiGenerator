@@ -1,11 +1,13 @@
 package com.osmig;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class alphabet {
 
-    public static void lowerCase() throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("text.txt", true));
+    public static String[] lowerCase(String letter) throws IOException {
 
         // THE CURRENT FONT IS : LARRY 3D
         String[] a = {"        ", "        ", "   __   " , " /'__`\\ ", "/\\ \\L\\.\\_", "\\ \\__/.\\_\\", " \\/__/\\/_/", "          ", "          "};
@@ -35,30 +37,78 @@ public class alphabet {
         String[] y = {"             " , "             " , "  __  __     " , " /\\ \\/\\ \\    " , " \\ \\ \\_\\ \\   " , "  \\/`____ \\  " , "   `/___/> \\ " , "      /\\___/ " , "      \\/__/  "};
         String[] z = {"           " , "           " , "  ____     " , " /\\_ ,`\\   " , " \\/_/  /_  " , "   /\\____\\ " , "   \\/____/ " , "           " , "           "};
 
+        //make dictionary key: String letter value: ascii letter
+        Map<String, String[]> letters = new HashMap<>();
+        letters.put("a", a);
+        letters.put("b", b);
+        letters.put("c", c);
+        letters.put("d", d);
+        letters.put("e", e);
+        letters.put("f", f);
+        letters.put("g", g);
+        letters.put("h", h);
+        letters.put("i", i);
+        letters.put("j", j);
+        letters.put("k", k);
+        letters.put("l", l);
+        letters.put("m", m);
+        letters.put("n", n);
+        letters.put("o", o);
+        letters.put("p", p);
+        letters.put("q", q);
+        letters.put("r", r);
+        letters.put("s", s);
+        letters.put("t", t);
+        letters.put("u", u);
+        letters.put("v", v);
+        letters.put("w", w);
+        letters.put("x", x);
+        letters.put("y", y);
+        letters.put("z", z);
+
+        //TODO: make method return ascii array
+
+        // TODO: get input word, split by char, get each ascii letter, append to txt file, print ascii word
+
+
+        return letters.get(letter);
+    }
+
+    public static void writeToFile(String[] letter) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("text.txt"));
+
         int line_index = 0;
         for(int num = 0; num <9; num++){
-            bufferedWriter.write(   u[line_index]+ "\n");
-            line_index++;
+            bufferedWriter.write(   letter[num]+ "\n");
+//            line_index++;
         }
-
         bufferedWriter.close();
+    }
 
-        // read file w/ buffer
+    public static void printAscii() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("text.txt"));
+        // read file w/ buffer
         String line;
         //bufferedReader.readLine();
         while ((line = bufferedReader.readLine()) != null){
             System.out.println(line);
         }
+        bufferedReader.close();
+        //resetFile();
+    }
 
+    public static void splitWord(){
+
+    }
+
+    public static void resetFile() throws IOException {
         BufferedWriter reset = new BufferedWriter(new FileWriter("text.txt"));
         reset.write("");
         reset.close();
     }
 
 
-
     public static void main(String[] args) throws IOException {
-        lowerCase();
+        writeToFile(lowerCase("a"));
     }
 }
